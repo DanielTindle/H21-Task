@@ -1,0 +1,35 @@
+﻿@page
+@model usersModel
+@{
+    ViewData["Title"] = "User Data";
+   
+}
+<h1>@ViewData["Title"]</h1>
+
+<p>Below is a list of Users</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Full Name</th>
+            <th>Date Of Birth</th>
+            <th>Telephone</th>
+            <th>Email</th>
+        </tr>
+    </thead>
+    <tbody>
+    @foreach(var user in Model.UsersList)
+       {
+            <tr>
+                <td>@user.id</td>
+                <td>@user.FullName</td>
+                <td>@user.DateOfBirth</td>
+                <td>@user.Telephone</td>
+                <td>@user.Email</td>
+            </tr>
+        }
+    </tbody>
+</table>
+<form method="post">
+    <input type="submit" value="Export" class=" btn btn-info" asp-page-handler="Export"  />
+</form>
